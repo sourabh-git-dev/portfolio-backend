@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: portfolio-backend
+    env: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/portfolio-backend-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DB_HOST
+        value: dpg-d2s74i3e5dus73dbvqbg-a.oregon-postgres.render.com
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: portfolio_db_pl28
+      - key: DB_USER
+        value: portfolio_db_pl28_user
+      - key: DB_PASS
+        value: UomoVwWed1F5CAXf6csqacJtj21ZrnSx
+      - key: MAIL_USER
+        value: portfoliosourabh@gmail.com
+      - key: MAIL_PASS
+        value: nbka ysex bjim ulac
