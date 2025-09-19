@@ -9,6 +9,7 @@ import java.util.Random;
 
 @Service
 public class OtpService {
+
     private final OtpRepository otpRepository;
     private final EmailService emailService;
 
@@ -17,13 +18,13 @@ public class OtpService {
         this.emailService = emailService;
     }
 
-    //  Generate OTP and send email via SendGrid
+    // Generate OTP and send email via SendGrid
     public void generateAndSendOtp(String email) {
         String otpCode = String.valueOf(100000 + new Random().nextInt(900000));
 
-        // Clear old OTPs (optional cleanup)
+        // Remove old OTPs for the same email
         otpRepository.findByEmailAndCode(email, otpCode)
-                .ifPresent(existingOtp -> otpRepository.delete(existingOtp));
+                .ifPresent(otpRepository::delete);
 
         Otp otp = new Otp();
         otp.setEmail(email);
@@ -33,17 +34,14 @@ public class OtpService {
         otpRepository.save(otp);
 
         try {
-            emailService.sendEmail(
-                    email,
-                    "Your OTP Code",
-                    "Your OTP is: " + otpCode + "\n(valid for 5 minutes)."
-            );
+            emailService.sendEmail(email, "Your OTP Code",
+                    "Your OTP is: " + otpCode + "\n(valid for 5 minutes).");
         } catch (IOException e) {
             throw new RuntimeException("Failed to send OTP via SendGrid", e);
         }
     }
 
-    // 🔹 Verify OTP
+    // Verify OTP
     public boolean verifyOtp(String email, String code) {
         return otpRepository.findByEmailAndCode(email, code)
                 .filter(o -> o.getExpiryTime().isAfter(LocalDateTime.now()))
