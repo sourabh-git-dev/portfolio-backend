@@ -18,3 +18,9 @@ services:
         value: UomoVwWed1F5CAXf6csqacJtj21ZrnSx
       - key: PORT
         value: 10000
+        envVars:
+      - key: SENDGRID_API_KEY
+        fromGlobalSecret: true
+      - key: SENDGRID_FROM_EMAIL
+        fromGlobalSecret: true
+
