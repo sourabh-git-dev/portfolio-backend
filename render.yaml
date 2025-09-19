@@ -16,7 +16,5 @@ services:
         value: portfolio_db_pl28_user
       - key: DB_PASS
         value: UomoVwWed1F5CAXf6csqacJtj21ZrnSx
-      - key: MAIL_USER
-        value: portfoliosourabh@gmail.com
-      - key: MAIL_PASS
-        value: nbka ysex bjim ulac
+       - key: PORT
+        value: 10000
