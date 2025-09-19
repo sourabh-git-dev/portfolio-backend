@@ -6,10 +6,13 @@ import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
-@Repository  // not mandatory, but good for clarity
+@Repository  
 public interface OtpRepository extends JpaRepository<Otp, Long> {
     Optional<Otp> findByEmailAndCode(String email, String code);
-
+    
+public interface OtpRepository extends CrudRepository<Otp, Long> {
+    Optional<Otp> findByEmailAndCode(String email, String code);
+}
     // Optional extra: clean up expired OTPs later
     void deleteByExpiryTimeBefore(java.time.LocalDateTime now);
 }
