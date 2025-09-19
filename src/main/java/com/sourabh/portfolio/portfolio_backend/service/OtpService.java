@@ -3,7 +3,6 @@ package com.sourabh.portfolio.portfolio_backend.service;
 import com.sourabh.portfolio.portfolio_backend.model.Otp;
 import com.sourabh.portfolio.portfolio_backend.repository.OtpRepository;
 import org.springframework.stereotype.Service;
-
 import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Random;
@@ -11,7 +10,7 @@ import java.util.Random;
 @Service
 public class OtpService {
     private final OtpRepository otpRepository;
-    private final EmailService emailService;  // ✅ use our SendGrid service
+    private final EmailService emailService; 
 
     public OtpService(OtpRepository otpRepository, EmailService emailService) {
         this.otpRepository = otpRepository;
