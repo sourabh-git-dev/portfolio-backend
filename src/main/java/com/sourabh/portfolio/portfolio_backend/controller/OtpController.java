@@ -8,15 +8,15 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/otp")
-@CrossOrigin(origins = "*") // allows frontend (HTML/JS) to call API
+@CrossOrigin(origins = "*")
 public class OtpController {
+
     private final OtpService otpService;
 
     public OtpController(OtpService otpService) {
         this.otpService = otpService;
     }
 
-    // 🔹 Generate and send OTP
     @PostMapping("/send")
     public ResponseEntity<String> sendOtp(@RequestBody Map<String, String> body) {
         String email = body.get("email");
@@ -27,7 +27,6 @@ public class OtpController {
         return ResponseEntity.ok("OTP sent to " + email);
     }
 
-    // 🔹 Verify OTP
     @PostMapping("/verify")
     public ResponseEntity<String> verifyOtp(@RequestBody Map<String, String> body) {
         String email = body.get("email");
