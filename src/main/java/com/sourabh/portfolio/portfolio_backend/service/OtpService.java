@@ -10,14 +10,14 @@ import java.util.Random;
 @Service
 public class OtpService {
     private final OtpRepository otpRepository;
-    private final EmailService emailService; 
+    private final EmailService emailService;
 
     public OtpService(OtpRepository otpRepository, EmailService emailService) {
         this.otpRepository = otpRepository;
         this.emailService = emailService;
     }
 
-    // 🔹 Generate OTP and send email via SendGrid
+    //  Generate OTP and send email via SendGrid
     public void generateAndSendOtp(String email) {
         String otpCode = String.valueOf(100000 + new Random().nextInt(900000));
 
