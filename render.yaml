@@ -16,5 +16,5 @@ services:
         value: portfolio_db_pl28_user
       - key: DB_PASS
         value: UomoVwWed1F5CAXf6csqacJtj21ZrnSx
-       - key: PORT
+      - key: PORT
         value: 10000
