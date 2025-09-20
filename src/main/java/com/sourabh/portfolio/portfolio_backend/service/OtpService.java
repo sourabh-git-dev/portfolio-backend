@@ -33,12 +33,9 @@ public class OtpService {
 
         otpRepository.save(otp);
 
-        try {
-            emailService.sendEmail(email, "Your OTP Code",
-                    "Your OTP is: " + otpCode + "\n(valid for 5 minutes).");
-        } catch (IOException e) {
-            throw new RuntimeException("Failed to send OTP via SendGrid", e);
-        }
+     
+            emailService.sendEmail(email, "Your OTP Code", "Your OTP is: " + otpCode + "\n(valid for 5 minutes).");
+        
     }
 
     // Verify OTP
