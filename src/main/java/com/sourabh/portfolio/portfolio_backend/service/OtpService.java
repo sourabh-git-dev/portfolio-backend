@@ -3,7 +3,6 @@ package com.sourabh.portfolio.portfolio_backend.service;
 import com.sourabh.portfolio.portfolio_backend.model.Otp;
 import com.sourabh.portfolio.portfolio_backend.repository.OtpRepository;
 import org.springframework.stereotype.Service;
-import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Random;
 
