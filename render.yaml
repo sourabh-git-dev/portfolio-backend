@@ -1,27 +1,26 @@
-# Exported from Render on 2025-09-20T07:18:16Z
-version: "1"
 services:
-- type: web
-  name: portfolio-backend
-  runtime: docker
-  repo: https://github.com/sourabh-git-dev/portfolio-backend
-  plan: free
-  envVars:
-  - key: SENDGRID_FROM_EMAIL
-    sync: false
-  - key: SENDGRID_API_KEY
-    sync: false
-  - key: DB_PASS
-    sync: false
-  - key: DB_USER
-    sync: false
-  - key: DB_NAME
-    sync: false
-  - key: DB_PORT
-    sync: false
-  - key: DB_HOST
-    sync: false
-  region: singapore
-  dockerContext: .
-  dockerfilePath: ./Dockerfile
-  autoDeployTrigger: commit
+  - type: web
+    name: portfolio-backend
+    env: java
+    plan: free
+    buildCommand: ./mvnw clean package -DskipTests
+    startCommand: java -jar target/portfolio-backend-0.0.1-SNAPSHOT.jar
+    envVars:
+      - key: DB_HOST
+        value: dpg-d2s74i3e5dus73dbvqbg-a.oregon-postgres.render.com
+      - key: DB_PORT
+        value: 5432
+      - key: DB_NAME
+        value: portfolio_db_pl28
+      - key: DB_USER
+        value: portfolio_db_pl28_user
+      - key: DB_PASS
+        value: UomoVwWed1F5CAXf6csqacJtj21ZrnSx
+      - key: PORT
+        value: 10000
+        envVars:
+      - key: SENDGRID_API_KEY
+        fromGlobalSecret: true
+      - key: SENDGRID_FROM_EMAIL
+        fromGlobalSecret: true
+
