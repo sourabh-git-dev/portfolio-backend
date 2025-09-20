@@ -12,13 +12,14 @@ public class Message {
 
     private String name;
     private String email;
-    private String message;
+    private String message;  
 
-    // Constructors
-    public message() {
+    // constructor
+    public Message() {
     }
 
-    public message(String name, String email, String message) {
+    // Parameterized constructor
+    public Message(String name, String email, String message) {
         this.name = name;
         this.email = email;
         this.message = message;
