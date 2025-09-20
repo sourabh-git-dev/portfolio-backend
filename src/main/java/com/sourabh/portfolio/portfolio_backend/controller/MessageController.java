@@ -20,7 +20,7 @@ public class MessageController {
 
     @PostMapping
     public ResponseEntity<Message> saveMessage(@RequestBody Message message) {
-        if (message.getName() == null || message.getEmail() == null || message.getContent() == null) {
+        if (message.getName() == null || message.getEmail() == null || message.getMessage() == null) {
             return ResponseEntity.badRequest().build();
         }
         Message savedMessage = messageRepository.save(message);
