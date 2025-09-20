@@ -35,7 +35,7 @@ public class OtpService {
     String subject = "Portfolio App: Your OTP Code";
     String body = "Hello,\n\nYour OTP is: " + otpCode + 
                   "\nIt is valid for 5 minutes only.\n\nPortfolio App";
-    emailService.sendEmail(email, subject, body, "Portfolio App <portfoliosourabh@gmail.com>");
+    emailService.sendEmail(email, subject, body);
 }
 
 
