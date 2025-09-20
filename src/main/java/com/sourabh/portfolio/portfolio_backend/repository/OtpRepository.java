@@ -10,9 +10,6 @@ import java.util.Optional;
 public interface OtpRepository extends JpaRepository<Otp, Long> {
     Optional<Otp> findByEmailAndCode(String email, String code);
     
-public interface OtpRepository extends CrudRepository<Otp, Long> {
-    Optional<Otp> findByEmailAndCode(String email, String code);
-}
     // Optional extra: clean up expired OTPs later
     void deleteByExpiryTimeBefore(java.time.LocalDateTime now);
 }
