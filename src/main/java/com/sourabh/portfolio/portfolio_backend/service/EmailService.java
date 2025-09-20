@@ -1,5 +1,9 @@
 package com.sourabh.portfolio.portfolio_backend.service;
 
+import com.sendgrid.helpers.mail.Mail;
+import com.sendgrid.helpers.mail.objects.Email;
+import com.sendgrid.helpers.mail.objects.Content;
+import com.sendgrid.helpers.mail.objects.Personalization;
 import com.sendgrid.*;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
