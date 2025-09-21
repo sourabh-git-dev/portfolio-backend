@@ -24,7 +24,7 @@ public class OtpController {
             return ResponseEntity.badRequest().body("Email is required");
         }
         otpService.generateAndSendOtp(email);
-        return ResponseEntity.ok("OTP sent to " + email);
+        return ResponseEntity.ok("OTP sent to " + email+" Please check your spam/junk folder if not received. ");
     }
 
     @PostMapping("/verify")
